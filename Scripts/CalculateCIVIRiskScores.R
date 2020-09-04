@@ -18,11 +18,15 @@ library(plyr) # needed for rbind.fill()
 # Change directory as needed
 db <- "E:/GIS/Projects/BIO/SmallCraftHarbour/Infrastructure/SCH_2000_Final.mdb"
 
+db <- "R:/Shared/Greyson/CIVIUpdateTransfer/CIVI_database.mdb"
+
 # Connect to MS Access db
 chan <- odbcConnectAccess(db)
 
 # Import calculated CIVI and associated Sub-indices
-CIVI <- sqlFetch(chan, "0000CalculateCIVI")
+CIVI <- sqlFetch(chan, "01CalculateCIVI")
+
+
 
 # Break dataframe into atlantic and pacific
 
@@ -52,7 +56,8 @@ skewness(tmp_atlantic$ESI)
 skewness(tmp_atlantic$CIVI, na.rm = TRUE)
 skewness(tmp_atlantic$ISI, na.rm = TRUE)
 skewness(tmp_atlantic$SESI, na.rm = TRUE)
-skewness(tmp_pacific$ESI^3)
+
+skewness(tmp_pacific$ESI^2)
 skewness(tmp_pacific$CIVI^2, na.rm = TRUE)
 skewness(tmp_pacific$ISI, na.rm = TRUE)
 
