@@ -27,6 +27,7 @@ log
 *.rdata
 *.csv
 *.pptx
+*.accdb
 
 *.dcf
 *.html
